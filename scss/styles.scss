@@ -1,0 +1,60 @@
+@import "color.scss";
+
+@mixin style($style1, $style2, $style3, $style4){
+    background-color: $style1;
+    height: $style2;
+    width: $style3;
+    position: $style4;
+}
+
+@mixin text ($text1, $text2, $text3, $text4, $text5) {
+    position: $text1;
+    text-align: $text2;
+    top: $text3;
+    left: $text4;
+    transform: $text5;
+}
+
+//Global
+* {
+    color: $color-text;
+    font-size: 1.2rem;
+}
+
+.container {
+    background-color: $color-background;
+    border: 1px solid #000;
+    display: flex;
+    height: 500px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1em;
+    width: 50%;
+
+    .left {
+        @include style($color-leftbg, 100%, 69%, relative);
+        p {@include text (absolute, center, 55%, 50%, translate(-50%, -120%));}
+    }
+
+    .right {
+        @include style($color-rightbg, 100%, 29%, relative);
+        p {@include text (absolute, center, 50%, 50%, translate(-50%, -120%));}
+
+        .button {
+            background-color: $color-botton;
+            color: $color-leftbg;
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 7em;
+            height: 2.5em;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 0.5em 2em;
+
+            //this is to center content vertically
+            @include text(absolute, center, 100%, 50%, translate(-50%, -120%));
+        }
+    }
+
+}
